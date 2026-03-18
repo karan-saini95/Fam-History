@@ -58,9 +58,11 @@ hr.div { border: none; border-top: 1px solid var(--divider); max-width: 1080px; 
 .map-cap { font-size: 12px; color: var(--ink3); margin-top: 7px; font-style: italic; }
 
 .map-key { margin-top: 20px; }
-.mk-gen { margin-bottom: 16px; }
-.mk-gen-label { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink3); margin-bottom: 8px; padding-bottom: 5px; border-bottom: 1px solid var(--divider); }
-.mk-rows { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 6px 24px; }
+.mk-gen { margin-bottom: 10px; }
+.mk-gen-hdr { padding: 10px 14px; border-radius: 6px 6px 0 0; }
+.mk-gen-hdr-name { font-size: 13px; font-weight: bold; margin-bottom: 2px; }
+.mk-gen-hdr-sub { font-size: 11px; opacity: 0.8; }
+.mk-rows { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 6px 24px; padding: 10px 14px 12px; border-radius: 0 0 6px 6px; }
 .mk-row { display: flex; align-items: baseline; gap: 9px; }
 .mk-badge { font-size: 10px; font-weight: bold; font-family: Georgia, serif; color: #fff; border-radius: 50%; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative; top: 1px; }
 .mk-place { font-size: 13px; color: var(--ink); font-weight: bold; white-space: nowrap; flex-shrink: 0; }
@@ -214,16 +216,22 @@ footer { text-align: center; padding: 28px 40px; border-top: 1px solid var(--div
   <div id="map-global"></div>
   <div class="map-key">
     <div class="mk-gen">
-      <div class="mk-gen-label">Rup Lal Trehan · great-grandfather</div>
-      <div class="mk-rows">
+      <div class="mk-gen-hdr" style="background:#F7EDD8">
+        <div class="mk-gen-hdr-name" style="color:#5C3A08">Rup Lal Trehan</div>
+        <div class="mk-gen-hdr-sub" style="color:#8B5E15">Great-grandfather · 1900–1975</div>
+      </div>
+      <div class="mk-rows" style="background:#FBF5EA">
         <div class="mk-row"><span class="mk-badge" style="background:var(--g1)">1</span><span class="mk-place">Sri Hargobindpur, Punjab</span></div>
         <div class="mk-row"><span class="mk-badge" style="background:var(--g1)">2</span><span class="mk-place">Ranchi, Bihar</span></div>
         <div class="mk-row"><span class="mk-badge" style="background:var(--g1)">3</span><span class="mk-place">Limbe, Cameroon — Africa</span></div>
       </div>
     </div>
     <div class="mk-gen">
-      <div class="mk-gen-label">Major Satya Paul Trehan · grandfather</div>
-      <div class="mk-rows">
+      <div class="mk-gen-hdr" style="background:#F2DDD8">
+        <div class="mk-gen-hdr-name" style="color:#4A1A0A">Major Satya Paul Trehan</div>
+        <div class="mk-gen-hdr-sub" style="color:#6B2410">Grandfather · 1941–2010</div>
+      </div>
+      <div class="mk-rows" style="background:#F8EAE6">
         <div class="mk-row"><span class="mk-badge" style="background:var(--g2)">4</span><span class="mk-place">Ludhiana, Punjab</span></div>
         <div class="mk-row"><span class="mk-badge" style="background:var(--g2)">5</span><span class="mk-place">Dehradun, Uttarakhand</span></div>
         <div class="mk-row"><span class="mk-badge" style="background:var(--g2)">6</span><span class="mk-place">Jalpaiguri, West Bengal</span></div>
@@ -231,8 +239,11 @@ footer { text-align: center; padding: 28px 40px; border-top: 1px solid var(--div
       </div>
     </div>
     <div class="mk-gen">
-      <div class="mk-gen-label">Ambika Trehan · mother</div>
-      <div class="mk-rows">
+      <div class="mk-gen-hdr" style="background:#D5E8F2">
+        <div class="mk-gen-hdr-name" style="color:#0F2E3A">Ambika Trehan</div>
+        <div class="mk-gen-hdr-sub" style="color:#164050">Mother · b. 1973</div>
+      </div>
+      <div class="mk-rows" style="background:#E6F1F8">
         <div class="mk-row"><span class="mk-badge" style="background:var(--g3)">8</span><span class="mk-place">Fazilka, Punjab</span></div>
         <div class="mk-row"><span class="mk-badge" style="background:var(--g3)">9</span><span class="mk-place">Valsad, Gujarat</span></div>
         <div class="mk-row"><span class="mk-badge" style="background:var(--g3)">10</span><span class="mk-place">Faridabad, Haryana</span></div>
@@ -240,8 +251,11 @@ footer { text-align: center; padding: 28px 40px; border-top: 1px solid var(--div
       </div>
     </div>
     <div class="mk-gen">
-      <div class="mk-gen-label">Karan Saini</div>
-      <div class="mk-rows">
+      <div class="mk-gen-hdr" style="background:#D8EDE2">
+        <div class="mk-gen-hdr-name" style="color:#1E4A34">Karan Saini</div>
+        <div class="mk-gen-hdr-sub" style="color:#357052">Generation IV · b. 1995</div>
+      </div>
+      <div class="mk-rows" style="background:#E6F2EC">
         <div class="mk-row"><span class="mk-badge" style="background:var(--g4)">12</span><span class="mk-place">Delhi</span></div>
         <div class="mk-row"><span class="mk-badge" style="background:var(--g4)">13</span><span class="mk-place">Chicago, Illinois</span></div>
         <div class="mk-row"><span class="mk-badge" style="background:var(--g4)">14</span><span class="mk-place">San Francisco, California</span></div>
