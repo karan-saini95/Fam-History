@@ -104,7 +104,7 @@ hr.div { border: none; border-top: 1px solid var(--divider); max-width: 1080px; 
 /* ── LEGEND ── */
 .legend { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 12px; align-items: center; }
 .li { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--ink2); }
-.ll { width: 26px; height: 2.5px; border-radius: 2px; }
+.ll { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
 
 /* ── MAPS ── */
 #map-global, #map-india {
@@ -202,10 +202,9 @@ footer {
     <div class="li"><div class="ll" style="background:var(--g2)"></div> Grandfather (1941–1970s)</div>
     <div class="li"><div class="ll" style="background:var(--g3)"></div> Mother (1973–1990s)</div>
     <div class="li"><div class="ll" style="background:var(--g4)"></div> Karan (1990s–present)</div>
-    <div class="li"><div class="ll" style="background:var(--ink3);border-top:2px dashed var(--ink3);height:0;margin-top:1px"></div> Return journey</div>
   </div>
   <div id="map-global"></div>
-  <p class="map-cap">Click any marker for details. Routes are approximated; the great-grandfather's West Africa posting (c.1940–1942) was the family's first intercontinental crossing.</p>
+  <p class="map-cap">Click any marker for details. Numbers reflect a rough chronological order of significance. The great-grandfather's West Africa posting (c.1940–42) was the family's first intercontinental crossing.</p>
 </section>
 
 <hr class="div">
@@ -317,7 +316,7 @@ footer {
         <div class="ev-dot" style="background:var(--g2)"></div>
         <div>
           <div class="ev-place">Calcutta (Kolkata)</div>
-          <div class="ev-desc">Takes voluntary exit from the army and joins Hindustan Motors, one of India's premier manufacturers, known for the Ambassador car. This marks the family's shift from public/military service to India's early industrial economy. He meets your grandmother here.</div>
+          <div class="ev-desc">Takes voluntary exit from the army and joins Hindustan Motors, one of India's premier manufacturers, known for the Ambassador car. This marks the family's shift from public/military service to India's early industrial economy. He meets his wife here.</div>
         </div>
       </div>
     </div>
@@ -369,7 +368,7 @@ footer {
         <div class="ev-dot" style="background:var(--g3)"></div>
         <div>
           <div class="ev-place">Chandigarh</div>
-          <div class="ev-desc">Settles in Le Corbusier's planned city — the administrative and cultural hub of Punjab and Haryana. Attends Panjab University, where she meets your father. The family's Indian journey finds its terminus here.</div>
+          <div class="ev-desc">Settles in Le Corbusier's planned city — the administrative and cultural hub of Punjab and Haryana. Both parents attend Panjab University, where they meet. The family's Indian journey finds its terminus here.</div>
         </div>
       </div>
     </div>
@@ -380,7 +379,7 @@ footer {
     <div class="gen-side">
       <div class="gen-name">Karan</div>
       <div class="gen-yrs">1990s – present</div>
-      <div class="gen-role">Product Manager<br>Adobe Document Cloud, San Francisco</div>
+      <div class="gen-role">Product Manager<br>Adobe, San Francisco</div>
       <div class="gen-bar" style="background:var(--g4)"></div>
     </div>
     <div class="gen-body">
@@ -397,7 +396,7 @@ footer {
         <div class="ev-dot" style="background:var(--g4)"></div>
         <div>
           <div class="ev-place">Delhi</div>
-          <div class="ev-desc">College and early professional career in the capital — the first family member to plant roots here since the grandfather's army posting decades earlier.</div>
+          <div class="ev-desc">Studies at the University of Delhi, then stays on for early professional work in the capital.</div>
         </div>
       </div>
       <div class="ev">
@@ -405,7 +404,7 @@ footer {
         <div class="ev-dot" style="background:var(--g4)"></div>
         <div>
           <div class="ev-place">Chicago, United States</div>
-          <div class="ev-desc">Graduate studies — the family's first international crossing since the great-grandfather's posting to Cameroon, roughly 75 years earlier. National mobility gives way to global.</div>
+          <div class="ev-desc">Graduate studies at Northwestern University — the family's first international move since the great-grandfather's posting to Cameroon, roughly 75 years earlier.</div>
         </div>
       </div>
       <div class="ev">
@@ -413,7 +412,7 @@ footer {
         <div class="ev-dot" style="background:var(--g4)"></div>
         <div>
           <div class="ev-place">San Francisco, California</div>
-          <div class="ev-desc">Product Manager in the global technology ecosystem. The arc from colonial railway officer to knowledge-economy PM spans ~120 years and traces one of the defining stories of the Indian diaspora — from empire's margins to the world's innovation centers.</div>
+          <div class="ev-desc">Works as a Product Manager in the technology industry. A journey that began in colonial-era Punjab now spans ~120 years, three continents, and many chapters.</div>
         </div>
       </div>
     </div>
@@ -427,17 +426,17 @@ footer {
 <script>
 const C = { g1:'#A87020', g2:'#8C3B1E', g3:'#22607A', g4:'#357052' };
 
-function dot(color, size) {
-  size = size || 10;
+function numberedIcon(color, n) {
+  const s = 28;
   return L.divIcon({
     className: '',
-    html: `<div style="width:${size}px;height:${size}px;background:${color};border-radius:50%;border:2px solid rgba(255,255,255,0.85);box-shadow:0 1px 4px rgba(0,0,0,0.28)"></div>`,
-    iconSize:[size,size], iconAnchor:[size/2,size/2], popupAnchor:[0,-size/2+2]
+    html: `<div style="width:${s}px;height:${s}px;background:${color};border-radius:50%;border:2.5px solid rgba(255,255,255,0.9);box-shadow:0 1px 5px rgba(0,0,0,0.32);display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-size:12px;font-weight:bold;color:#fff;line-height:1">${n}</div>`,
+    iconSize:[s,s], iconAnchor:[s/2,s/2], popupAnchor:[0,-s/2+2]
   });
 }
 
 function popup(title, text) {
-  return `<div style="max-width:220px"><strong>${title}</strong><br><span style="color:#68604E;font-size:12px">${text}</span></div>`;
+  return `<div style="max-width:230px"><strong>${title}</strong><br><span style="color:#68604E;font-size:12px">${text}</span></div>`;
 }
 
 const loc = {
@@ -461,29 +460,15 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{
   attribution:'© OpenStreetMap contributors © CARTO', subdomains:'abcd', maxZoom:19
 }).addTo(mg);
 
-// G1: Punjab → Cameroon (solid) + Cameroon → Punjab (dashed return)
-L.polyline([loc.jalandhar, loc.limbe], {color:C.g1, weight:2, opacity:0.85}).addTo(mg);
-L.polyline([loc.limbe, loc.jalandhar], {color:C.g1, weight:1.5, dashArray:'6 6', opacity:0.5}).addTo(mg);
-
-// G2: India arc
-L.polyline([loc.ludhiana, loc.delhi, loc.siliguri, loc.jalandhar, loc.kolkata], {color:C.g2, weight:2, opacity:0.8}).addTo(mg);
-
-// G3: India arc
-L.polyline([loc.fazilka, loc.kolkata, loc.valsad, loc.faridabad, loc.chandigarh], {color:C.g3, weight:2, opacity:0.8}).addTo(mg);
-
-// G4: Global
-L.polyline([loc.chandigarh, loc.delhi, loc.chicago, loc.sf], {color:C.g4, weight:2.5, opacity:0.9}).addTo(mg);
-
-// Key markers
 const gm = [
-  [loc.jalandhar, C.g1, 13, 'Sri Hargobindpur / Jalandhar', 'Ancestral home of the Trehan (Khatri) clan. Origin of the great-grandfather.'],
-  [loc.limbe,     C.g1, 13, 'Limbe (Victoria), Cameroon',   'Great-grandfather posted here ~1940. Grandfather born here in 1941 — the family\'s furthest departure from India.'],
-  [loc.kolkata,   C.g2, 11, 'Calcutta (Kolkata)',            'Grandfather joined Hindustan Motors. Mother\'s early childhood (1973–76).'],
-  [loc.chandigarh,C.g3, 13, 'Chandigarh',                   'Endpoint of the family\'s Indian journey. Karan\'s birthplace. Le Corbusier\'s planned city.'],
-  [loc.chicago,   C.g4, 11, 'Chicago, IL',                   'Karan\'s graduate studies — first international crossing since Cameroon, ~75 years later.'],
-  [loc.sf,        C.g4, 13, 'San Francisco, CA',              'Current base. Product Manager, Adobe Document Cloud.'],
+  [loc.jalandhar, C.g1, 1, 'Sri Hargobindpur / Jalandhar', 'Ancestral home of the Trehan (Khatri) clan. Origin of the great-grandfather.'],
+  [loc.limbe,     C.g1, 2, 'Limbe (Victoria), Cameroon',   'Great-grandfather posted here ~1940. Grandfather born here in 1941 — the family\'s furthest departure from India.'],
+  [loc.kolkata,   C.g2, 3, 'Calcutta (Kolkata)',            'Grandfather joined Hindustan Motors. Mother\'s early childhood (1973–76).'],
+  [loc.chandigarh,C.g3, 4, 'Chandigarh',                   'Endpoint of the family\'s Indian journey. Karan\'s birthplace. Le Corbusier\'s planned city.'],
+  [loc.chicago,   C.g4, 5, 'Chicago, IL',                   'Graduate studies at Northwestern University — the family\'s first international move since Cameroon, ~75 years later.'],
+  [loc.sf,        C.g4, 6, 'San Francisco, CA',              'Current base. Works in the technology industry.'],
 ];
-gm.forEach(([l,c,s,t,d]) => L.marker(l,{icon:dot(c,s)}).bindPopup(popup(t,d)).addTo(mg));
+gm.forEach(([l,c,n,t,d]) => L.marker(l,{icon:numberedIcon(c,n)}).bindPopup(popup(t,d)).addTo(mg));
 
 /* ── INDIA MAP ── */
 const mi = L.map('map-india', { center:[24,80], zoom:5 });
@@ -491,21 +476,18 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{
   attribution:'© OpenStreetMap contributors © CARTO', subdomains:'abcd', maxZoom:19
 }).addTo(mi);
 
-L.polyline([loc.ludhiana, loc.delhi, loc.siliguri, loc.jalandhar, loc.kolkata], {color:C.g2, weight:2.5, opacity:0.85}).addTo(mi);
-L.polyline([loc.fazilka, loc.kolkata, loc.valsad, loc.faridabad, loc.chandigarh], {color:C.g3, weight:2.5, opacity:0.85}).addTo(mi);
-
 const im = [
-  [loc.fazilka,   C.g3, 12, 'Fazilka, Punjab',         'Mother born here in 1973 at her grandmother\'s home — near the India–Pakistan border.'],
-  [loc.ludhiana,  C.g2, 11, 'Ludhiana, Punjab',         'Grandfather raised here. Attended Arya College.'],
-  [loc.jalandhar, C.g2, 11, 'Jalandhar / Sri Hargobindpur', 'Ancestral homeland. Army posting.'],
-  [loc.delhi,     C.g2, 12, 'Delhi',                    'Army posting (Grandfather). College & career launchpad (Karan).'],
-  [loc.siliguri,  C.g2, 11, 'Siliguri',                 'Strategic army posting — the Siliguri Corridor connecting Northeast India.'],
-  [loc.kolkata,   C.g2, 12, 'Calcutta (Kolkata)',        'Grandfather: Hindustan Motors. Mother: childhood 1973–76.'],
-  [loc.valsad,    C.g3, 11, 'Valsad, Gujarat',          'Mother\'s formative years 1976–83. Seven years in western India.'],
-  [loc.faridabad, C.g3, 11, 'Faridabad, NCR',           'Transitional stop 1983–86.'],
-  [loc.chandigarh,C.g3, 13, 'Chandigarh',               'Final destination of the family\'s Indian arc. Karan born here.'],
+  [loc.fazilka,   C.g3, 1, 'Fazilka, Punjab',              'Mother born here in 1973 at her grandmother\'s home — near the India–Pakistan border.'],
+  [loc.ludhiana,  C.g2, 2, 'Ludhiana, Punjab',              'Grandfather raised here. Attended Arya College.'],
+  [loc.jalandhar, C.g2, 3, 'Jalandhar / Sri Hargobindpur',  'Ancestral homeland. Also an army posting for the grandfather.'],
+  [loc.siliguri,  C.g2, 4, 'Siliguri',                      'Strategic army posting — the Siliguri Corridor connecting Northeast India.'],
+  [loc.kolkata,   C.g2, 5, 'Calcutta (Kolkata)',             'Grandfather: Hindustan Motors. Mother: early childhood 1973–76.'],
+  [loc.valsad,    C.g3, 6, 'Valsad, Gujarat',               'Seven formative years for the family, 1976–83.'],
+  [loc.faridabad, C.g3, 7, 'Faridabad, NCR',                'Transitional stop 1983–86.'],
+  [loc.delhi,     C.g4, 8, 'Delhi',                          'Karan studies at University of Delhi, then works in the capital.'],
+  [loc.chandigarh,C.g3, 9, 'Chandigarh',                    'Both parents study at Panjab University. Karan born here.'],
 ];
-im.forEach(([l,c,s,t,d]) => L.marker(l,{icon:dot(c,s)}).bindPopup(popup(t,d)).addTo(mi));
+im.forEach(([l,c,n,t,d]) => L.marker(l,{icon:numberedIcon(c,n)}).bindPopup(popup(t,d)).addTo(mi));
 </script>
 </body>
 </html>
