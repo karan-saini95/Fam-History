@@ -379,7 +379,7 @@ footer {
     <div class="gen-side">
       <div class="gen-name">Karan</div>
       <div class="gen-yrs">1990s – present</div>
-      <div class="gen-role">Product Manager<br>Adobe, San Francisco</div>
+      <div class="gen-role">Product Manager<br>Adobe Document Cloud, San Francisco</div>
       <div class="gen-bar" style="background:var(--g4)"></div>
     </div>
     <div class="gen-body">
@@ -461,12 +461,18 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{
 }).addTo(mg);
 
 const gm = [
-  [loc.jalandhar, C.g1, 1, 'Sri Hargobindpur / Jalandhar', 'Ancestral home of the Trehan (Khatri) clan. Origin of the great-grandfather.'],
-  [loc.limbe,     C.g1, 2, 'Limbe (Victoria), Cameroon',   'Great-grandfather posted here ~1940. Grandfather born here in 1941 — the family\'s furthest departure from India.'],
-  [loc.kolkata,   C.g2, 3, 'Calcutta (Kolkata)',            'Grandfather joined Hindustan Motors. Mother\'s early childhood (1973–76).'],
-  [loc.chandigarh,C.g3, 4, 'Chandigarh',                   'Endpoint of the family\'s Indian journey. Karan\'s birthplace. Le Corbusier\'s planned city.'],
-  [loc.chicago,   C.g4, 5, 'Chicago, IL',                   'Graduate studies at Northwestern University — the family\'s first international move since Cameroon, ~75 years later.'],
-  [loc.sf,        C.g4, 6, 'San Francisco, CA',              'Current base. Works in the technology industry.'],
+  [loc.jalandhar, C.g1, 1,  'Sri Hargobindpur / Jalandhar', 'Ancestral home of the Trehan (Khatri) clan. Origin of the great-grandfather.'],
+  [loc.limbe,     C.g1, 2,  'Limbe (Victoria), Cameroon',   'Great-grandfather posted here ~1940. Grandfather born here in 1941 — the family\'s furthest departure from India.'],
+  [loc.ludhiana,  C.g2, 3,  'Ludhiana, Punjab',              'Grandfather raised here. Attended Arya College.'],
+  [loc.siliguri,  C.g2, 4,  'Siliguri',                      'Strategic army posting — the Siliguri Corridor connecting Northeast India.'],
+  [loc.kolkata,   C.g2, 5,  'Calcutta (Kolkata)',             'Grandfather joined Hindustan Motors. Mother\'s early childhood (1973–76).'],
+  [loc.fazilka,   C.g3, 6,  'Fazilka, Punjab',               'Mother born here in 1973 at her grandmother\'s home — near the India–Pakistan border.'],
+  [loc.valsad,    C.g3, 7,  'Valsad, Gujarat',               'Seven formative years for the family, 1976–83.'],
+  [loc.faridabad, C.g3, 8,  'Faridabad, NCR',                'Transitional stop 1983–86.'],
+  [loc.chandigarh,C.g3, 9,  'Chandigarh',                    'Both parents study at Panjab University. Karan\'s birthplace. Le Corbusier\'s planned city.'],
+  [loc.delhi,     C.g4, 10, 'Delhi',                          'Karan studies at University of Delhi, then works in the capital.'],
+  [loc.chicago,   C.g4, 11, 'Chicago, IL',                    'Graduate studies at Northwestern University — the family\'s first international move since Cameroon, ~75 years later.'],
+  [loc.sf,        C.g4, 12, 'San Francisco, CA',               'Current base. Works in the technology industry.'],
 ];
 gm.forEach(([l,c,n,t,d]) => L.marker(l,{icon:numberedIcon(c,n)}).bindPopup(popup(t,d)).addTo(mg));
 
