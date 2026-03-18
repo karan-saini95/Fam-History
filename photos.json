@@ -1,0 +1,56 @@
+[
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // HOW TO ADD A PHOTO
+  // ─────────────────────────────────────────────────────────────────────────
+  // 1. Put the image file in the /photos folder in your GitHub repo
+  // 2. Add one entry below following the format shown
+  // 3. Save and commit — the page will pick it up automatically
+  //
+  // FIELDS:
+  //   filename  — the image file name (must be in the /photos folder)
+  //   era       — which generation card to show it on:
+  //               "g1" = Rup Lal Trehan (great-grandfather)
+  //               "g2" = Major Satya Paul Trehan (grandfather)
+  //               "g3" = Ambika Trehan (mother)
+  //               "g4" = Karan Saini
+  //   type      — "portrait" shows in the card header as a circular photo
+  //               "gallery" shows in the filmstrip at the bottom of the card
+  //               Only ONE portrait per era — if you add multiple, last one wins
+  //   year      — approximate year (number, e.g. 1965) — shown in the caption
+  //   location  — where the photo was taken (e.g. "Ludhiana, Punjab")
+  //   people    — who is in the photo (array of names)
+  //   caption   — short description shown under the thumbnail
+  // ─────────────────────────────────────────────────────────────────────────
+
+  {
+    "filename": "example-satya-paul-portrait.jpg",
+    "era": "g2",
+    "type": "portrait",
+    "year": 1968,
+    "location": "Dehradun",
+    "people": ["Major Satya Paul Trehan"],
+    "caption": "At the Indian Military Academy, Dehradun"
+  },
+
+  {
+    "filename": "example-satya-paul-army.jpg",
+    "era": "g2",
+    "type": "gallery",
+    "year": 1965,
+    "location": "Jalandhar, Punjab",
+    "people": ["Major Satya Paul Trehan"],
+    "caption": "Army posting, Jalandhar"
+  },
+
+  {
+    "filename": "example-family-calcutta.jpg",
+    "era": "g2",
+    "type": "gallery",
+    "year": 1974,
+    "location": "Calcutta",
+    "people": ["Major Satya Paul Trehan", "Narinder Trehan", "Ambika Trehan"],
+    "caption": "Family in Calcutta, 1974"
+  }
+
+]
