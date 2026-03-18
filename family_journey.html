@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Family's Journey Across Generations</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:      #F5F0E6;
+  --bg2:     #EDE7D8;
+  --ink:     #26221A;
+  --ink2:    #68604E;
+  --ink3:    #A09A8C;
+  --divider: #D6CCBA;
+  --g1:      #A87020;
+  --g2:      #8C3B1E;
+  --g3:      #22607A;
+  --g4:      #357052;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+/* ── HEADER ── */
+.hdr {
+  padding: 52px 40px 36px;
+  text-align: center;
+  border-bottom: 1px solid var(--divider);
+}
+.hdr-eye {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin-bottom: 14px;
+}
+.hdr h1 {
+  font-size: 2.9rem;
+  font-weight: normal;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin-bottom: 14px;
+}
+.hdr-sub {
+  font-style: italic;
+  color: var(--ink2);
+  font-size: 1rem;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+/* ── ORNAMENT ── */
+.orn { text-align: center; padding: 14px 0 22px; color: var(--ink3); letter-spacing: 0.5em; font-size: 13px; }
+
+/* ── STATS ── */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--divider);
+  border-bottom: 1px solid var(--divider);
+  margin-bottom: 0;
+}
+.stat {
+  text-align: center;
+  padding: 20px 8px;
+  border-right: 1px solid var(--divider);
+}
+.stat:last-child { border-right: none; }
+.stat-n {
+  font-size: 2.2rem;
+  font-weight: normal;
+  line-height: 1;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+}
+.stat-l {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin-top: 4px;
+}
+
+/* ── SECTION ── */
+section { padding: 28px 40px; max-width: 1080px; margin: 0 auto; }
+.sec-label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin-bottom: 12px;
+}
+hr.div { border: none; border-top: 1px solid var(--divider); max-width: 1080px; margin: 4px 40px; }
+
+/* ── LEGEND ── */
+.legend { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 12px; align-items: center; }
+.li { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--ink2); }
+.ll { width: 26px; height: 2.5px; border-radius: 2px; }
+
+/* ── MAPS ── */
+#map-global, #map-india {
+  height: 500px;
+  border-radius: 6px;
+  border: 1px solid var(--divider);
+  background: #E8E4DC;
+}
+.map-cap { font-size: 12px; color: var(--ink3); margin-top: 7px; font-style: italic; }
+
+/* ── LEAFLET POPUP OVERRIDE ── */
+.leaflet-popup-content-wrapper {
+  background: #F5F0E6 !important;
+  border: 1px solid #D6CCBA !important;
+  border-radius: 5px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12) !important;
+  font-family: 'Georgia', serif !important;
+}
+.leaflet-popup-content { font-size: 13px !important; color: #26221A !important; line-height: 1.5 !important; margin: 10px 12px !important; }
+.leaflet-popup-tip-container { display: none; }
+.leaflet-popup-close-button { color: #A09A8C !important; font-size: 16px !important; top: 6px !important; right: 8px !important; }
+
+/* ── TIMELINE ── */
+.gen-block {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  gap: 36px;
+  align-items: start;
+  margin-bottom: 44px;
+  padding-bottom: 44px;
+  border-bottom: 1px solid var(--divider);
+}
+.gen-block:last-child { border-bottom: none; }
+.gen-side { text-align: right; padding-top: 2px; }
+.gen-name { font-size: 1.1rem; color: var(--ink); margin-bottom: 3px; }
+.gen-yrs { font-size: 11px; color: var(--ink3); letter-spacing: 0.04em; }
+.gen-role { font-size: 12px; color: var(--ink2); margin-top: 6px; font-style: italic; line-height: 1.5; }
+.gen-bar { width: 36px; height: 3px; margin-left: auto; margin-top: 12px; border-radius: 2px; }
+.gen-body { padding-left: 24px; border-left: 1px solid var(--divider); }
+.ev { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+.ev-yr { font-size: 11px; color: var(--ink3); min-width: 44px; padding-top: 3px; font-variant-numeric: tabular-nums; flex-shrink: 0; }
+.ev-dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
+.ev-place { font-size: 14px; font-weight: bold; font-style: normal; color: var(--ink); margin-bottom: 2px; }
+.ev-desc { font-size: 13px; color: var(--ink2); line-height: 1.6; }
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 28px 40px;
+  border-top: 1px solid var(--divider);
+  color: var(--ink3);
+  font-size: 12px;
+  font-style: italic;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 680px) {
+  section { padding: 20px; }
+  hr.div { margin: 4px 20px; }
+  .hdr { padding: 32px 20px 24px; }
+  .hdr h1 { font-size: 1.9rem; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .stat:nth-child(2) { border-right: none; }
+  .gen-block { grid-template-columns: 1fr; gap: 16px; }
+  .gen-side { text-align: left; }
+  .gen-bar { margin-left: 0; }
+  #map-global, #map-india { height: 360px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="hdr">
+  <div class="hdr-eye">A family archive · Punjab to San Francisco</div>
+  <h1>Five Generations,<br>Three Continents</h1>
+  <p class="hdr-sub">From the Majha belt of Punjab to the shores of Cameroon, across post-independence India, and into the global knowledge economy — 120 years of movement.</p>
+</div>
+
+<div class="orn">· · · · ·</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-n">5</div><div class="stat-l">Generations</div></div>
+  <div class="stat"><div class="stat-n">3</div><div class="stat-l">Continents</div></div>
+  <div class="stat"><div class="stat-n">14</div><div class="stat-l">Cities</div></div>
+  <div class="stat"><div class="stat-n">~120</div><div class="stat-l">Years of movement</div></div>
+</div>
+
+<!-- GLOBAL MAP -->
+<section>
+  <p class="sec-label">Global footprint — three continents, one lineage</p>
+  <div class="legend">
+    <div class="li"><div class="ll" style="background:var(--g1)"></div> Great-grandfather (c.1900–1945)</div>
+    <div class="li"><div class="ll" style="background:var(--g2)"></div> Grandfather (1941–1970s)</div>
+    <div class="li"><div class="ll" style="background:var(--g3)"></div> Mother (1973–1990s)</div>
+    <div class="li"><div class="ll" style="background:var(--g4)"></div> Karan (1990s–present)</div>
+    <div class="li"><div class="ll" style="background:var(--ink3);border-top:2px dashed var(--ink3);height:0;margin-top:1px"></div> Return journey</div>
+  </div>
+  <div id="map-global"></div>
+  <p class="map-cap">Click any marker for details. Routes are approximated; the great-grandfather's West Africa posting (c.1940–1942) was the family's first intercontinental crossing.</p>
+</section>
+
+<hr class="div">
+
+<!-- INDIA MAP -->
+<section>
+  <p class="sec-label">The India arc — internal migration across two generations</p>
+  <div class="legend">
+    <div class="li"><div class="ll" style="background:var(--g2)"></div> Grandfather's postings (1950s–1970s)</div>
+    <div class="li"><div class="ll" style="background:var(--g3)"></div> Mother's childhood journey (1973–1990)</div>
+  </div>
+  <div id="map-india"></div>
+  <p class="map-cap">East to West to North — the family traversed Bengal, Gujarat, and the NCR before settling in Chandigarh, Karan's birthplace.</p>
+</section>
+
+<hr class="div">
+
+<!-- GENERATIONAL TIMELINE -->
+<section>
+  <p class="sec-label">Generational timeline</p>
+
+  <!-- Gen 1: Great-grandfather -->
+  <div class="gen-block">
+    <div class="gen-side">
+      <div class="gen-name">Great-Grandfather</div>
+      <div class="gen-yrs">c. Early 1900s – c. 1950s</div>
+      <div class="gen-role">Indian Railways Officer<br>British Colonial Service</div>
+      <div class="gen-bar" style="background:var(--g1)"></div>
+    </div>
+    <div class="gen-body">
+      <div class="ev">
+        <div class="ev-yr">1900s</div>
+        <div class="ev-dot" style="background:var(--g1)"></div>
+        <div>
+          <div class="ev-place">Sri Hargobindpur / Jalandhar, Punjab</div>
+          <div class="ev-desc">Born into the Khatri (Trehan clan) community in Punjab's Majha belt — a region with deep Sikh institutional history. Guru Angad, the second Sikh Guru, belonged to the Trehan lineage. Khatris were traditionally literacy-based professionals: administrators, merchants, officers.</div>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="ev-yr">1930s</div>
+        <div class="ev-dot" style="background:var(--g1)"></div>
+        <div>
+          <div class="ev-place">Indian Railways — British India</div>
+          <div class="ev-desc">Joins as a rank officer in the colonial railway administration. The railways were the backbone of imperial logistics — his role required English proficiency, numeracy, and institutional trust. Such positions were commonly held by Khatris.</div>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="ev-yr">c.1940</div>
+        <div class="ev-dot" style="background:var(--g1)"></div>
+        <div>
+          <div class="ev-place">Limbe (Victoria), British Cameroons — West Africa</div>
+          <div class="ev-desc">Posted to the coastal port town of Limbe during the WWII era as part of the British Empire's deployment of skilled Indian personnel across its territories. Limbe was linked administratively to Nigeria and played a role in port logistics and resource movement.</div>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="ev-yr">1941</div>
+        <div class="ev-dot" style="background:var(--g1)"></div>
+        <div>
+          <div class="ev-place">A son born in Cameroon</div>
+          <div class="ev-desc">Your grandfather is born in Limbe — the family's single furthest departure from Punjab, and the only member of the line born outside India.</div>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="ev-yr">Late 1940s</div>
+        <div class="ev-dot" style="background:var(--g1)"></div>
+        <div>
+          <div class="ev-place">Return to India</div>
+          <div class="ev-desc">The family returns around Indian independence (1947) — part of the broad wind-down of colonial postings as the British Empire retreated.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gen 2: Grandfather -->
+  <div class="gen-block">
+    <div class="gen-side">
+      <div class="gen-name">Grandfather</div>
+      <div class="gen-yrs">1941 – present</div>
+      <div class="gen-role">Indian Army Officer (~8 years)<br>Hindustan Motors, Calcutta</div>
+      <div class="gen-bar" style="background:var(--g2)"></div>
+    </div>
+    <div class="gen-body">
+      <div class="ev">
+        <div class="ev-yr">1941</div>
+        <div class="ev-dot" style="background:var(--g2)"></div>
+        <div>
+          <div class="ev-place">Born in Limbe, British Cameroons</div>
+          <div class="ev-desc">A direct product of his father's imperial posting — born on the West African coast, he would be raised in Punjab.</div>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="ev-yr">1950s</div>
+        <div class="ev-dot" style="background:var(--g2)"></div>
+        <div>
+          <div class="ev-place">Ludhiana, Punjab</div>
+          <div class="ev-desc">Raised in Ludhiana and attends Arya College — a well-regarded institution reflecting continued access to formal education within the family.</div>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="ev-yr">1960s</div>
+        <div class="ev-dot" style="background:var(--g2)"></div>
+        <div>
+          <div class="ev-place">Indian Army — Delhi · Siliguri · Jalandhar</div>
+          <div class="ev-desc">Serves approximately 8 years as an officer during India's nation-building phase. Postings include Delhi, Siliguri (strategically vital, near the Northeast Corridor), and Jalandhar — a breadth of deployment that mirrors his father's wide-ranging service.</div>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="ev-yr">1970s</div>
+        <div class="ev-dot" style="background:var(--g2)"></div>
+        <div>
+          <div class="ev-place">Calcutta (Kolkata)</div>
+          <div class="ev-desc">Takes voluntary exit from the army and joins Hindustan Motors, one of India's premier manufacturers, known for the Ambassador car. This marks the family's shift from public/military service to India's early industrial economy. He meets your grandmother here.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gen 3: Mother -->
+  <div class="gen-block">
+    <div class="gen-side">
+      <div class="gen-name">Mother</div>
+      <div class="gen-yrs">1973 – present</div>
+      <div class="gen-role">Raised across five cities<br>Panjab University, Chandigarh</div>
+      <div class="gen-bar" style="background:var(--g3)"></div>
+    </div>
+    <div class="gen-body">
+      <div class="ev">
+        <div class="ev-yr">1973</div>
+        <div class="ev-dot" style="background:var(--g3)"></div>
+        <div>
+          <div class="ev-place">Born in Fazilka, Punjab</div>
+          <div class="ev-desc">Born at her maternal grandmother's home near the India–Pakistan border — a common practice of the time, returning to family for childbirth. The family is otherwise based in Calcutta.</div>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="ev-yr">1973–76</div>
+        <div class="ev-dot" style="background:var(--g3)"></div>
+        <div>
+          <div class="ev-place">Calcutta</div>
+          <div class="ev-desc">Early childhood in the city of her parents' professional life — Bengal at a significant moment in post-independence history.</div>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="ev-yr">1976–83</div>
+        <div class="ev-dot" style="background:var(--g3)"></div>
+        <div>
+          <div class="ev-place">Valsad, Gujarat</div>
+          <div class="ev-desc">Seven formative years in western India — the family moves from East to West, from Calcutta's Bengali culture to Gujarat's coastal belt. A significant stretch that shapes early life.</div>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="ev-yr">1983–86</div>
+        <div class="ev-dot" style="background:var(--g3)"></div>
+        <div>
+          <div class="ev-place">Faridabad, Delhi NCR</div>
+          <div class="ev-desc">The family moves to the NCR's industrial belt — signaling a return northward and toward the eventual Punjabi home base.</div>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="ev-yr">1986 +</div>
+        <div class="ev-dot" style="background:var(--g3)"></div>
+        <div>
+          <div class="ev-place">Chandigarh</div>
+          <div class="ev-desc">Settles in Le Corbusier's planned city — the administrative and cultural hub of Punjab and Haryana. Attends Panjab University, where she meets your father. The family's Indian journey finds its terminus here.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gen 4: Karan -->
+  <div class="gen-block">
+    <div class="gen-side">
+      <div class="gen-name">Karan</div>
+      <div class="gen-yrs">1990s – present</div>
+      <div class="gen-role">Product Manager<br>Adobe Document Cloud, San Francisco</div>
+      <div class="gen-bar" style="background:var(--g4)"></div>
+    </div>
+    <div class="gen-body">
+      <div class="ev">
+        <div class="ev-yr">1990s</div>
+        <div class="ev-dot" style="background:var(--g4)"></div>
+        <div>
+          <div class="ev-place">Born in Chandigarh</div>
+          <div class="ev-desc">Born in the city that represents the consolidation of two generations of internal migration — Chandigarh is both endpoint and launchpad.</div>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="ev-yr">2010s</div>
+        <div class="ev-dot" style="background:var(--g4)"></div>
+        <div>
+          <div class="ev-place">Delhi</div>
+          <div class="ev-desc">College and early professional career in the capital — the first family member to plant roots here since the grandfather's army posting decades earlier.</div>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="ev-yr">2010s</div>
+        <div class="ev-dot" style="background:var(--g4)"></div>
+        <div>
+          <div class="ev-place">Chicago, United States</div>
+          <div class="ev-desc">Graduate studies — the family's first international crossing since the great-grandfather's posting to Cameroon, roughly 75 years earlier. National mobility gives way to global.</div>
+        </div>
+      </div>
+      <div class="ev">
+        <div class="ev-yr">Present</div>
+        <div class="ev-dot" style="background:var(--g4)"></div>
+        <div>
+          <div class="ev-place">San Francisco, California</div>
+          <div class="ev-desc">Product Manager in the global technology ecosystem. The arc from colonial railway officer to knowledge-economy PM spans ~120 years and traces one of the defining stories of the Indian diaspora — from empire's margins to the world's innovation centers.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>Trehan family history · Pre-1900 to present · Sri Hargobindpur, Punjab → San Francisco, California</footer>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const C = { g1:'#A87020', g2:'#8C3B1E', g3:'#22607A', g4:'#357052' };
+
+function dot(color, size) {
+  size = size || 10;
+  return L.divIcon({
+    className: '',
+    html: `<div style="width:${size}px;height:${size}px;background:${color};border-radius:50%;border:2px solid rgba(255,255,255,0.85);box-shadow:0 1px 4px rgba(0,0,0,0.28)"></div>`,
+    iconSize:[size,size], iconAnchor:[size/2,size/2], popupAnchor:[0,-size/2+2]
+  });
+}
+
+function popup(title, text) {
+  return `<div style="max-width:220px"><strong>${title}</strong><br><span style="color:#68604E;font-size:12px">${text}</span></div>`;
+}
+
+const loc = {
+  jalandhar:  [31.32, 75.58],
+  ludhiana:   [30.90, 75.85],
+  fazilka:    [30.40, 74.02],
+  delhi:      [28.61, 77.21],
+  siliguri:   [26.72, 88.43],
+  kolkata:    [22.57, 88.36],
+  valsad:     [20.59, 72.93],
+  faridabad:  [28.41, 77.31],
+  chandigarh: [30.73, 76.78],
+  limbe:      [4.02,   9.20],
+  chicago:    [41.88, -87.63],
+  sf:         [37.77, -122.42]
+};
+
+/* ── GLOBAL MAP ── */
+const mg = L.map('map-global', { center:[22,40], zoom:2 });
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{
+  attribution:'© OpenStreetMap contributors © CARTO', subdomains:'abcd', maxZoom:19
+}).addTo(mg);
+
+// G1: Punjab → Cameroon (solid) + Cameroon → Punjab (dashed return)
+L.polyline([loc.jalandhar, loc.limbe], {color:C.g1, weight:2, opacity:0.85}).addTo(mg);
+L.polyline([loc.limbe, loc.jalandhar], {color:C.g1, weight:1.5, dashArray:'6 6', opacity:0.5}).addTo(mg);
+
+// G2: India arc
+L.polyline([loc.ludhiana, loc.delhi, loc.siliguri, loc.jalandhar, loc.kolkata], {color:C.g2, weight:2, opacity:0.8}).addTo(mg);
+
+// G3: India arc
+L.polyline([loc.fazilka, loc.kolkata, loc.valsad, loc.faridabad, loc.chandigarh], {color:C.g3, weight:2, opacity:0.8}).addTo(mg);
+
+// G4: Global
+L.polyline([loc.chandigarh, loc.delhi, loc.chicago, loc.sf], {color:C.g4, weight:2.5, opacity:0.9}).addTo(mg);
+
+// Key markers
+const gm = [
+  [loc.jalandhar, C.g1, 13, 'Sri Hargobindpur / Jalandhar', 'Ancestral home of the Trehan (Khatri) clan. Origin of the great-grandfather.'],
+  [loc.limbe,     C.g1, 13, 'Limbe (Victoria), Cameroon',   'Great-grandfather posted here ~1940. Grandfather born here in 1941 — the family\'s furthest departure from India.'],
+  [loc.kolkata,   C.g2, 11, 'Calcutta (Kolkata)',            'Grandfather joined Hindustan Motors. Mother\'s early childhood (1973–76).'],
+  [loc.chandigarh,C.g3, 13, 'Chandigarh',                   'Endpoint of the family\'s Indian journey. Karan\'s birthplace. Le Corbusier\'s planned city.'],
+  [loc.chicago,   C.g4, 11, 'Chicago, IL',                   'Karan\'s graduate studies — first international crossing since Cameroon, ~75 years later.'],
+  [loc.sf,        C.g4, 13, 'San Francisco, CA',              'Current base. Product Manager, Adobe Document Cloud.'],
+];
+gm.forEach(([l,c,s,t,d]) => L.marker(l,{icon:dot(c,s)}).bindPopup(popup(t,d)).addTo(mg));
+
+/* ── INDIA MAP ── */
+const mi = L.map('map-india', { center:[24,80], zoom:5 });
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{
+  attribution:'© OpenStreetMap contributors © CARTO', subdomains:'abcd', maxZoom:19
+}).addTo(mi);
+
+L.polyline([loc.ludhiana, loc.delhi, loc.siliguri, loc.jalandhar, loc.kolkata], {color:C.g2, weight:2.5, opacity:0.85}).addTo(mi);
+L.polyline([loc.fazilka, loc.kolkata, loc.valsad, loc.faridabad, loc.chandigarh], {color:C.g3, weight:2.5, opacity:0.85}).addTo(mi);
+
+const im = [
+  [loc.fazilka,   C.g3, 12, 'Fazilka, Punjab',         'Mother born here in 1973 at her grandmother\'s home — near the India–Pakistan border.'],
+  [loc.ludhiana,  C.g2, 11, 'Ludhiana, Punjab',         'Grandfather raised here. Attended Arya College.'],
+  [loc.jalandhar, C.g2, 11, 'Jalandhar / Sri Hargobindpur', 'Ancestral homeland. Army posting.'],
+  [loc.delhi,     C.g2, 12, 'Delhi',                    'Army posting (Grandfather). College & career launchpad (Karan).'],
+  [loc.siliguri,  C.g2, 11, 'Siliguri',                 'Strategic army posting — the Siliguri Corridor connecting Northeast India.'],
+  [loc.kolkata,   C.g2, 12, 'Calcutta (Kolkata)',        'Grandfather: Hindustan Motors. Mother: childhood 1973–76.'],
+  [loc.valsad,    C.g3, 11, 'Valsad, Gujarat',          'Mother\'s formative years 1976–83. Seven years in western India.'],
+  [loc.faridabad, C.g3, 11, 'Faridabad, NCR',           'Transitional stop 1983–86.'],
+  [loc.chandigarh,C.g3, 13, 'Chandigarh',               'Final destination of the family\'s Indian arc. Karan born here.'],
+];
+im.forEach(([l,c,s,t,d]) => L.marker(l,{icon:dot(c,s)}).bindPopup(popup(t,d)).addTo(mi));
+</script>
+</body>
+</html>
