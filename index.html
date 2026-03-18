@@ -34,37 +34,13 @@ body {
   text-align: center;
   border-bottom: 1px solid var(--divider);
 }
-.hdr-eye {
-  font-size: 10px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--ink3);
-  margin-bottom: 14px;
-}
-.hdr h1 {
-  font-size: 2.9rem;
-  font-weight: normal;
-  letter-spacing: -0.025em;
-  line-height: 1.1;
-  margin-bottom: 14px;
-}
-.hdr-sub {
-  font-style: italic;
-  color: var(--ink2);
-  font-size: 1rem;
-  max-width: 580px;
-  margin: 0 auto;
-}
+.hdr-eye { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink3); margin-bottom: 14px; }
+.hdr h1 { font-size: 2.9rem; font-weight: normal; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 14px; }
+.hdr-sub { font-style: italic; color: var(--ink2); font-size: 1rem; max-width: 580px; margin: 0 auto; }
 
 .orn { text-align: center; padding: 14px 0 22px; color: var(--ink3); letter-spacing: 0.5em; font-size: 13px; }
 
-.stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  border-top: 1px solid var(--divider);
-  border-bottom: 1px solid var(--divider);
-}
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--divider); border-bottom: 1px solid var(--divider); }
 .stat { text-align: center; padding: 20px 8px; border-right: 1px solid var(--divider); }
 .stat:last-child { border-right: none; }
 .stat-n { font-size: 2.2rem; font-weight: normal; line-height: 1; color: var(--ink); letter-spacing: -0.03em; }
@@ -78,98 +54,121 @@ hr.div { border: none; border-top: 1px solid var(--divider); max-width: 1080px; 
 .li { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--ink2); }
 .ll { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
 
-#map-global, #map-india {
-  height: 500px;
-  border-radius: 6px;
-  border: 1px solid var(--divider);
-  background: #E8E4DC;
-}
+#map-global, #map-india { height: 500px; border-radius: 6px; border: 1px solid var(--divider); background: #E8E4DC; }
 .map-cap { font-size: 12px; color: var(--ink3); margin-top: 7px; font-style: italic; }
 
 .map-key { margin-top: 20px; }
 .mk-gen { margin-bottom: 16px; }
-.mk-gen-label {
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink3);
-  margin-bottom: 8px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid var(--divider);
-}
+.mk-gen-label { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink3); margin-bottom: 8px; padding-bottom: 5px; border-bottom: 1px solid var(--divider); }
 .mk-rows { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 6px 24px; }
 .mk-row { display: flex; align-items: baseline; gap: 9px; }
-.mk-badge {
-  font-size: 10px;
-  font-weight: bold;
-  font-family: Georgia, serif;
-  color: #fff;
-  border-radius: 50%;
-  width: 18px;
-  height: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  position: relative;
-  top: 1px;
-}
+.mk-badge { font-size: 10px; font-weight: bold; font-family: Georgia, serif; color: #fff; border-radius: 50%; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative; top: 1px; }
 .mk-place { font-size: 13px; color: var(--ink); font-weight: bold; white-space: nowrap; flex-shrink: 0; }
 
-.leaflet-popup-content-wrapper {
-  background: #F5F0E6 !important;
-  border: 1px solid #D6CCBA !important;
-  border-radius: 5px !important;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12) !important;
-  font-family: 'Georgia', serif !important;
-}
+.leaflet-popup-content-wrapper { background: #F5F0E6 !important; border: 1px solid #D6CCBA !important; border-radius: 5px !important; box-shadow: 0 2px 8px rgba(0,0,0,0.12) !important; font-family: 'Georgia', serif !important; }
 .leaflet-popup-content { font-size: 13px !important; color: #26221A !important; line-height: 1.5 !important; margin: 10px 12px !important; }
 .leaflet-popup-tip-container { display: none; }
 .leaflet-popup-close-button { color: #A09A8C !important; font-size: 16px !important; top: 6px !important; right: 8px !important; }
 
-.gen-block {
-  display: grid;
-  grid-template-columns: 230px 1fr;
-  gap: 36px;
-  align-items: start;
-  margin-bottom: 44px;
-  padding-bottom: 44px;
-  border-bottom: 1px solid var(--divider);
-}
-.gen-block:last-child { border-bottom: none; }
-.gen-side { text-align: right; padding-top: 2px; }
-.gen-name { font-size: 1.1rem; color: var(--ink); margin-bottom: 3px; }
-.gen-yrs { font-size: 11px; color: var(--ink3); letter-spacing: 0.04em; }
-.gen-role { font-size: 12px; color: var(--ink2); margin-top: 6px; font-style: italic; line-height: 1.5; }
-.gen-bar { width: 36px; height: 3px; margin-left: auto; margin-top: 12px; border-radius: 2px; }
-.gen-body { padding-left: 24px; border-left: 1px solid var(--divider); }
-.ev { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
-.ev-yr { font-size: 11px; color: var(--ink3); min-width: 44px; padding-top: 3px; font-variant-numeric: tabular-nums; flex-shrink: 0; }
-.ev-dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
-.ev-place { font-size: 14px; font-weight: bold; color: var(--ink); margin-bottom: 2px; }
-.ev-desc { font-size: 13px; color: var(--ink2); line-height: 1.6; }
+/* ── GENERATION CARDS ── */
+.gen-cards-section { padding: 28px 0; }
+.gen-cards-header { padding: 0 40px 16px; max-width: 1080px; margin: 0 auto; }
 
-footer {
-  text-align: center;
-  padding: 28px 40px;
-  border-top: 1px solid var(--divider);
-  color: var(--ink3);
-  font-size: 12px;
-  font-style: italic;
+.gen-scroll-wrap { position: relative; }
+.gen-scroll {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 40px 24px;
+  scrollbar-width: none;
 }
+.gen-scroll::-webkit-scrollbar { display: none; }
+
+.gen-card {
+  flex: 0 0 400px;
+  scroll-snap-align: start;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--divider);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.gen-card-hdr {
+  padding: 22px 24px 18px;
+  position: relative;
+}
+.gen-card-hdr::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 24px; right: 24px;
+  height: 1px;
+  background: rgba(255,255,255,0.25);
+}
+.gen-card-label { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 6px; }
+.gen-card-name { font-size: 1.15rem; color: #fff; font-weight: normal; line-height: 1.2; margin-bottom: 4px; }
+.gen-card-yrs { font-size: 11px; color: rgba(255,255,255,0.7); letter-spacing: 0.04em; margin-bottom: 10px; }
+.gen-card-role { font-size: 11.5px; color: rgba(255,255,255,0.85); font-style: italic; line-height: 1.5; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 10px; margin-top: 4px; }
+
+.gen-card-body {
+  padding: 20px 24px;
+  overflow-y: auto;
+  flex: 1;
+  background: var(--bg);
+  max-height: 480px;
+}
+
+.ev { display: flex; gap: 12px; margin-bottom: 18px; align-items: flex-start; }
+.ev:last-child { margin-bottom: 0; }
+.ev-yr { font-size: 10.5px; color: var(--ink3); min-width: 46px; padding-top: 3px; font-variant-numeric: tabular-nums; flex-shrink: 0; }
+.ev-dot { width: 7px; height: 7px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
+.ev-place { font-size: 13px; font-weight: bold; color: var(--ink); margin-bottom: 2px; }
+.ev-desc { font-size: 12px; color: var(--ink2); line-height: 1.6; }
+
+/* nav controls */
+.gen-nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 40px 8px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.gen-nav-btn {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--divider);
+  background: var(--bg);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink2);
+  font-size: 14px;
+  transition: background 0.15s;
+  flex-shrink: 0;
+}
+.gen-nav-btn:hover { background: var(--bg2); }
+.gen-dots { display: flex; gap: 7px; }
+.gen-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--divider);
+  transition: background 0.2s;
+  cursor: pointer;
+}
+.gen-dot.active { background: var(--ink3); }
 
 /* ── APPENDIX ── */
-.appendix-block {
-  margin-bottom: 40px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid var(--divider);
-}
+.appendix-block { margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--divider); }
 .appendix-block:last-child { border-bottom: none; margin-bottom: 0; }
 .appendix-title { font-size: 1rem; color: var(--ink); margin-bottom: 4px; }
 .appendix-sub { font-size: 11px; color: var(--ink3); letter-spacing: 0.04em; margin-bottom: 12px; }
 .appendix-body { font-size: 13px; color: var(--ink2); line-height: 1.75; max-width: 680px; }
 .appendix-body p { margin-bottom: 10px; }
 .appendix-body p:last-child { margin-bottom: 0; }
+
+footer { text-align: center; padding: 28px 40px; border-top: 1px solid var(--divider); color: var(--ink3); font-size: 12px; font-style: italic; }
 
 @media (max-width: 680px) {
   section { padding: 20px; }
@@ -178,10 +177,11 @@ footer {
   .hdr h1 { font-size: 1.9rem; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .stat:nth-child(2) { border-right: none; }
-  .gen-block { grid-template-columns: 1fr; gap: 16px; }
-  .gen-side { text-align: left; }
-  .gen-bar { margin-left: 0; }
   #map-global, #map-india { height: 360px; }
+  .gen-card { flex: 0 0 320px; }
+  .gen-scroll { padding: 0 20px 24px; }
+  .gen-cards-header, .gen-nav { padding-left: 20px; padding-right: 20px; }
+  .gen-card-body { max-height: 420px; }
 }
 </style>
 </head>
@@ -265,250 +265,269 @@ footer {
 
 <hr class="div">
 
-<!-- GENERATIONAL TIMELINE -->
-<section>
-  <p class="sec-label">Generational timeline</p>
-
-  <!-- Gen 1 -->
-  <div class="gen-block">
-    <div class="gen-side">
-      <div class="gen-name">Rup Lal Trehan <span style="font-size:0.85rem;color:var(--ink3)">(great-grandfather)</span></div>
-      <div class="gen-yrs">c. Early 1900s – 1975</div>
-      <div class="gen-role">Railway Engineer<br>British Colonial Service · Arya Samaj</div>
-      <div class="gen-bar" style="background:var(--g1)"></div>
-    </div>
-    <div class="gen-body">
-      <div class="ev">
-        <div class="ev-yr">1900s</div>
-        <div class="ev-dot" style="background:var(--g1)"></div>
-        <div>
-          <div class="ev-place">Sri Hargobindpur, Gurdaspur district, Punjab</div>
-          <div class="ev-desc">Born into the Khatri (Trehan clan) community in Punjab's Majha belt. The region has deep roots in Sikh history — Sri Hargobindpur is associated with the sixth Sikh Guru, and the Trehan lineage connects to Guru Angad, the second Guru. Rup Lal and his family were followers of Arya Samaj, believing in one formless God rather than idol or deity worship.</div>
-        </div>
-      </div>
-      <div class="ev">
-        <div class="ev-yr">1920s</div>
-        <div class="ev-dot" style="background:var(--g1)"></div>
-        <div>
-          <div class="ev-place">Ranchi, Bihar (now Jharkhand)</div>
-          <div class="ev-desc">After completing an engineering degree, follows his older brother — also a railway engineer — to Ranchi, then an important hub for the colonial railway network. The two brothers built their careers together within the British Indian Railways system.</div>
-        </div>
-      </div>
-      <div class="ev">
-        <div class="ev-yr">c.1940</div>
-        <div class="ev-dot" style="background:var(--g1)"></div>
-        <div>
-          <div class="ev-place">Limbe (Victoria), British Cameroons — West Africa</div>
-          <div class="ev-desc">Following his older brother once again, posted to the coastal port town of Limbe during the Second World War as part of the British Empire's deployment of skilled engineers across its territories. His wife Lilawati accompanied him. Limbe played a role in port logistics and resource movement, linked administratively to Nigeria.</div>
-        </div>
-      </div>
-      <div class="ev">
-        <div class="ev-yr">1941</div>
-        <div class="ev-dot" style="background:var(--g1)"></div>
-        <div>
-          <div class="ev-place">A son born in Cameroon</div>
-          <div class="ev-desc">Satya Paul Trehan is born in Limbe — the only member of the family line born outside India, on the West African coast.</div>
-        </div>
-      </div>
-      <div class="ev">
-        <div class="ev-yr">1944–45</div>
-        <div class="ev-dot" style="background:var(--g1)"></div>
-        <div>
-          <div class="ev-place">Return to India</div>
-          <div class="ev-desc">The family returns to India when Satya Paul is around 3–4 years old, coinciding with the end of the Second World War and the wind-down of the imperial posting.</div>
-        </div>
-      </div>
-      <div class="ev">
-        <div class="ev-yr">1975</div>
-        <div class="ev-dot" style="background:var(--g1)"></div>
-        <div>
-          <div class="ev-place">Passed away</div>
-          <div class="ev-desc">Rup Lal Trehan passed away in 1975, in his seventies. His wife Lilawati outlived him.</div>
-        </div>
-      </div>
-    </div>
+<!-- GENERATIONAL CARDS -->
+<div class="gen-cards-section">
+  <div class="gen-cards-header">
+    <p class="sec-label">Generational timeline — scroll to explore each generation</p>
   </div>
 
-  <!-- Gen 2 -->
-  <div class="gen-block">
-    <div class="gen-side">
-      <div class="gen-name">Major Satya Paul Trehan <span style="font-size:0.85rem;color:var(--ink3)">(grandfather)</span></div>
-      <div class="gen-yrs">1941 – 2010</div>
-      <div class="gen-role">Indian Army Officer — retired Major<br>Hindustan Motors · Lederle Labs</div>
-      <div class="gen-bar" style="background:var(--g2)"></div>
+  <div class="gen-nav">
+    <button class="gen-nav-btn" id="prev-btn" onclick="scrollCards(-1)">&#8592;</button>
+    <div class="gen-dots">
+      <div class="gen-dot active" onclick="goToCard(0)"></div>
+      <div class="gen-dot" onclick="goToCard(1)"></div>
+      <div class="gen-dot" onclick="goToCard(2)"></div>
+      <div class="gen-dot" onclick="goToCard(3)"></div>
     </div>
-    <div class="gen-body">
-      <div class="ev">
-        <div class="ev-yr">1941</div>
-        <div class="ev-dot" style="background:var(--g2)"></div>
-        <div>
-          <div class="ev-place">Born in Limbe, British Cameroons</div>
-          <div class="ev-desc">Born on the West African coast as a direct product of his father's imperial posting. Brought back to Punjab as a toddler, he would be raised in Ludhiana.</div>
-        </div>
-      </div>
-      <div class="ev">
-        <div class="ev-yr">1950s</div>
-        <div class="ev-dot" style="background:var(--g2)"></div>
-        <div>
-          <div class="ev-place">Ludhiana, Punjab</div>
-          <div class="ev-desc">Raised in Ludhiana and attends Arya College, building on the family's tradition of education and public service.</div>
-        </div>
-      </div>
-      <div class="ev">
-        <div class="ev-yr">1960s</div>
-        <div class="ev-dot" style="background:var(--g2)"></div>
-        <div>
-          <div class="ev-place">Indian Military Academy, Dehradun</div>
-          <div class="ev-desc">Commissioned as an officer through the Indian Military Academy in Dehradun, one of India's most prestigious military institutions.</div>
-        </div>
-      </div>
-      <div class="ev">
-        <div class="ev-yr">1960s</div>
-        <div class="ev-dot" style="background:var(--g2)"></div>
-        <div>
-          <div class="ev-place">Army postings — Delhi · Jalpaiguri, West Bengal · Jalandhar, Punjab</div>
-          <div class="ev-desc">Serves approximately 8 years as an officer during India's nation-building phase. Postings span Delhi, Jalpaiguri (near the strategically vital Northeast Corridor), and finally Jalandhar — his last posting before retirement as a Major.</div>
-        </div>
-      </div>
-      <div class="ev">
-        <div class="ev-yr">1972</div>
-        <div class="ev-dot" style="background:var(--g2)"></div>
-        <div>
-          <div class="ev-place">Marriage in Ludhiana</div>
-          <div class="ev-desc">Marries Narinder, from Fazilka — the match arranged by relatives on both sides. In keeping with the customs of the time, the two had not met before the wedding; she had only seen his photograph. The ceremony takes place in Ludhiana.</div>
-        </div>
-      </div>
-      <div class="ev">
-        <div class="ev-yr">1970s</div>
-        <div class="ev-dot" style="background:var(--g2)"></div>
-        <div>
-          <div class="ev-place">Calcutta, West Bengal</div>
-          <div class="ev-desc">After retiring from the army, joins Hindustan Motors in a security and administrative role — one of India's major manufacturers, known for the Ambassador car. It is here that the family settles and his daughter Ambika is born in 1973.</div>
-        </div>
-      </div>
-      <div class="ev">
-        <div class="ev-yr">1976</div>
-        <div class="ev-dot" style="background:var(--g2)"></div>
-        <div>
-          <div class="ev-place">Valsad, Gujarat</div>
-          <div class="ev-desc">Moves to Valsad to join Lederle Labs, part of the American Cyanamid Corporation — a significant shift from public-sector industry to a multinational pharmaceutical company.</div>
-        </div>
-      </div>
-      <div class="ev">
-        <div class="ev-yr">1983</div>
-        <div class="ev-dot" style="background:var(--g2)"></div>
-        <div>
-          <div class="ev-place">Faridabad, Haryana</div>
-          <div class="ev-desc">Moves to Faridabad to work at another chemical company in the NCR's industrial belt, continuing his career in the private sector.</div>
-        </div>
-      </div>
-      <div class="ev">
-        <div class="ev-yr">1985</div>
-        <div class="ev-dot" style="background:var(--g2)"></div>
-        <div>
-          <div class="ev-place">Chandigarh — final home</div>
-          <div class="ev-desc">The family settles in Chandigarh, the planned city that would become the permanent home base. His grandson Karan is born here a decade later and grows up in close proximity to him, absorbing his outlook, discipline, and breadth of experience.</div>
-        </div>
-      </div>
-    </div>
+    <button class="gen-nav-btn" id="next-btn" onclick="scrollCards(1)">&#8594;</button>
   </div>
 
-  <!-- Gen 3 -->
-  <div class="gen-block">
-    <div class="gen-side">
-      <div class="gen-name">Ambika Trehan <span style="font-size:0.85rem;color:var(--ink3)">(mother)</span></div>
-      <div class="gen-yrs">1973 – present</div>
-      <div class="gen-role">Lecturer of Biology<br>Chandigarh · Panjab University</div>
-      <div class="gen-bar" style="background:var(--g3)"></div>
-    </div>
-    <div class="gen-body">
-      <div class="ev">
-        <div class="ev-yr">1973</div>
-        <div class="ev-dot" style="background:var(--g3)"></div>
-        <div>
-          <div class="ev-place">Born in Fazilka, Punjab</div>
-          <div class="ev-desc">Born at her maternal grandmother's home near the India–Pakistan border — a common practice of the time, returning to family for childbirth. The family is otherwise based in Calcutta.</div>
-        </div>
-      </div>
-      <div class="ev">
-        <div class="ev-yr">1973–76</div>
-        <div class="ev-dot" style="background:var(--g3)"></div>
-        <div>
-          <div class="ev-place">Calcutta, West Bengal</div>
-          <div class="ev-desc">Early childhood in the city of her parents' professional life.</div>
-        </div>
-      </div>
-      <div class="ev">
-        <div class="ev-yr">1976–83</div>
-        <div class="ev-dot" style="background:var(--g3)"></div>
-        <div>
-          <div class="ev-place">Valsad, Gujarat</div>
-          <div class="ev-desc">Seven formative years in western India — the family moves from Bengal's east coast culture to Gujarat's coastal belt.</div>
-        </div>
-      </div>
-      <div class="ev">
-        <div class="ev-yr">1983–85</div>
-        <div class="ev-dot" style="background:var(--g3)"></div>
-        <div>
-          <div class="ev-place">Faridabad, Haryana</div>
-          <div class="ev-desc">The family moves to the NCR's industrial belt, signaling a return northward toward Punjab.</div>
-        </div>
-      </div>
-      <div class="ev">
-        <div class="ev-yr">1985 +</div>
-        <div class="ev-dot" style="background:var(--g3)"></div>
-        <div>
-          <div class="ev-place">Chandigarh</div>
-          <div class="ev-desc">Settles in Le Corbusier's planned city. Both parents attend Panjab University, where they meet. Ambika has built a career here as a Lecturer of Biology, spanning over two decades.</div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div class="gen-scroll-wrap">
+    <div class="gen-scroll" id="gen-scroll">
 
-  <!-- Gen 4 -->
-  <div class="gen-block">
-    <div class="gen-side">
-      <div class="gen-name">Karan Saini</div>
-      <div class="gen-yrs">1995 – present</div>
-      <div class="gen-role">Product Manager<br>San Francisco</div>
-      <div class="gen-bar" style="background:var(--g4)"></div>
-    </div>
-    <div class="gen-body">
-      <div class="ev">
-        <div class="ev-yr">1995</div>
-        <div class="ev-dot" style="background:var(--g4)"></div>
-        <div>
-          <div class="ev-place">Born in Chandigarh</div>
-          <div class="ev-desc">Born in the city where his grandparents had finally settled. Grows up in close proximity to Major Satya Paul Trehan and his grandmother Narinder — a childhood shaped significantly by his grandfather's stories, discipline, and wide-ranging experience of the world.</div>
+      <!-- CARD 1: Rup Lal Trehan -->
+      <div class="gen-card">
+        <div class="gen-card-hdr" style="background:var(--g1)">
+          <div class="gen-card-label">Great-grandfather · Generation I</div>
+          <div class="gen-card-name">Rup Lal Trehan</div>
+          <div class="gen-card-yrs">c.1900 – 1975</div>
+          <div class="gen-card-role">Railway Engineer · British Colonial Service<br>Arya Samaj · Sri Hargobindpur, Punjab</div>
+        </div>
+        <div class="gen-card-body">
+          <div class="ev">
+            <div class="ev-yr">1900s</div>
+            <div class="ev-dot" style="background:var(--g1)"></div>
+            <div>
+              <div class="ev-place">Sri Hargobindpur, Gurdaspur district, Punjab</div>
+              <div class="ev-desc">Born into the Khatri (Trehan clan) community in Punjab's Majha belt. The region has deep roots in Sikh history — Sri Hargobindpur is associated with the sixth Sikh Guru, and the Trehan lineage connects to Guru Angad, the second Guru. Rup Lal and his family were followers of Arya Samaj, believing in one formless God rather than idol or deity worship.</div>
+            </div>
+          </div>
+          <div class="ev">
+            <div class="ev-yr">1920s</div>
+            <div class="ev-dot" style="background:var(--g1)"></div>
+            <div>
+              <div class="ev-place">Ranchi, Bihar (now Jharkhand)</div>
+              <div class="ev-desc">After completing an engineering degree, follows his older brother — also a railway engineer — to Ranchi, then an important hub for the colonial railway network. The two brothers built their careers together within the British Indian Railways system.</div>
+            </div>
+          </div>
+          <div class="ev">
+            <div class="ev-yr">c.1940</div>
+            <div class="ev-dot" style="background:var(--g1)"></div>
+            <div>
+              <div class="ev-place">Limbe (Victoria), British Cameroons — West Africa</div>
+              <div class="ev-desc">Following his older brother once again, posted to the coastal port town of Limbe during the Second World War as part of the British Empire's deployment of skilled engineers. His wife Lilawati accompanied him. Limbe played a role in port logistics and resource movement, linked administratively to Nigeria.</div>
+            </div>
+          </div>
+          <div class="ev">
+            <div class="ev-yr">1941</div>
+            <div class="ev-dot" style="background:var(--g1)"></div>
+            <div>
+              <div class="ev-place">A son born in Cameroon</div>
+              <div class="ev-desc">Satya Paul Trehan is born in Limbe — the only member of the family line born outside India, on the West African coast.</div>
+            </div>
+          </div>
+          <div class="ev">
+            <div class="ev-yr">1944–45</div>
+            <div class="ev-dot" style="background:var(--g1)"></div>
+            <div>
+              <div class="ev-place">Return to India</div>
+              <div class="ev-desc">The family returns to India when Satya Paul is around 3–4 years old, coinciding with the end of the Second World War and the wind-down of the imperial posting.</div>
+            </div>
+          </div>
+          <div class="ev">
+            <div class="ev-yr">1975</div>
+            <div class="ev-dot" style="background:var(--g1)"></div>
+            <div>
+              <div class="ev-place">Passed away</div>
+              <div class="ev-desc">Rup Lal Trehan passed away in 1975, in his seventies. His wife Lilawati outlived him, passing in 1988.</div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="ev">
-        <div class="ev-yr">2014</div>
-        <div class="ev-dot" style="background:var(--g4)"></div>
-        <div>
-          <div class="ev-place">Delhi</div>
-          <div class="ev-desc">Studies at the University of Delhi, then stays on for early professional work in the capital.</div>
+
+      <!-- CARD 2: Major Satya Paul Trehan -->
+      <div class="gen-card">
+        <div class="gen-card-hdr" style="background:var(--g2)">
+          <div class="gen-card-label">Grandfather · Generation II</div>
+          <div class="gen-card-name">Major Satya Paul Trehan</div>
+          <div class="gen-card-yrs">1941 – 2010</div>
+          <div class="gen-card-role">Indian Army Officer — retired Major<br>Hindustan Motors · Lederle Labs</div>
+        </div>
+        <div class="gen-card-body">
+          <div class="ev">
+            <div class="ev-yr">1941</div>
+            <div class="ev-dot" style="background:var(--g2)"></div>
+            <div>
+              <div class="ev-place">Born in Limbe, British Cameroons</div>
+              <div class="ev-desc">Born on the West African coast as a direct product of his father's imperial posting. Brought back to Punjab as a toddler, he would be raised in Ludhiana.</div>
+            </div>
+          </div>
+          <div class="ev">
+            <div class="ev-yr">1950s</div>
+            <div class="ev-dot" style="background:var(--g2)"></div>
+            <div>
+              <div class="ev-place">Ludhiana, Punjab</div>
+              <div class="ev-desc">Raised in Ludhiana and attends Arya College, building on the family's tradition of education and public service.</div>
+            </div>
+          </div>
+          <div class="ev">
+            <div class="ev-yr">1960s</div>
+            <div class="ev-dot" style="background:var(--g2)"></div>
+            <div>
+              <div class="ev-place">Indian Military Academy, Dehradun</div>
+              <div class="ev-desc">Commissioned as an officer through the Indian Military Academy in Dehradun, one of India's most prestigious military institutions.</div>
+            </div>
+          </div>
+          <div class="ev">
+            <div class="ev-yr">1960s</div>
+            <div class="ev-dot" style="background:var(--g2)"></div>
+            <div>
+              <div class="ev-place">Army postings — Delhi · Jalpaiguri, West Bengal · Jalandhar, Punjab</div>
+              <div class="ev-desc">Serves approximately 8 years as an officer during India's nation-building phase. Postings span Delhi, Jalpaiguri (near the strategically vital Northeast Corridor), and finally Jalandhar — his last posting before retirement as a Major.</div>
+            </div>
+          </div>
+          <div class="ev">
+            <div class="ev-yr">1972</div>
+            <div class="ev-dot" style="background:var(--g2)"></div>
+            <div>
+              <div class="ev-place">Marriage in Ludhiana</div>
+              <div class="ev-desc">Marries Narinder, from Fazilka — the match arranged by relatives on both sides. In keeping with the customs of the time, the two had not met before the wedding; she had only seen his photograph. The ceremony takes place in Ludhiana.</div>
+            </div>
+          </div>
+          <div class="ev">
+            <div class="ev-yr">1970s</div>
+            <div class="ev-dot" style="background:var(--g2)"></div>
+            <div>
+              <div class="ev-place">Calcutta, West Bengal</div>
+              <div class="ev-desc">After retiring from the army, joins Hindustan Motors in a security and administrative role — one of India's major manufacturers, known for the Ambassador car. His daughter Ambika is born here in 1973.</div>
+            </div>
+          </div>
+          <div class="ev">
+            <div class="ev-yr">1976</div>
+            <div class="ev-dot" style="background:var(--g2)"></div>
+            <div>
+              <div class="ev-place">Valsad, Gujarat</div>
+              <div class="ev-desc">Moves to Valsad to join Lederle Labs, part of the American Cyanamid Corporation — a shift from public-sector industry to a multinational pharmaceutical company.</div>
+            </div>
+          </div>
+          <div class="ev">
+            <div class="ev-yr">1983</div>
+            <div class="ev-dot" style="background:var(--g2)"></div>
+            <div>
+              <div class="ev-place">Faridabad, Haryana</div>
+              <div class="ev-desc">Moves to Faridabad to work at another chemical company in the NCR's industrial belt, continuing his career in the private sector.</div>
+            </div>
+          </div>
+          <div class="ev">
+            <div class="ev-yr">1985</div>
+            <div class="ev-dot" style="background:var(--g2)"></div>
+            <div>
+              <div class="ev-place">Chandigarh — final home</div>
+              <div class="ev-desc">The family settles in Chandigarh. His grandson Karan is born here a decade later and grows up in close proximity to him, absorbing his outlook, discipline, and breadth of experience.</div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="ev">
-        <div class="ev-yr">2022</div>
-        <div class="ev-dot" style="background:var(--g4)"></div>
-        <div>
-          <div class="ev-place">Chicago, United States</div>
-          <div class="ev-desc">Graduate studies at Northwestern University — the family's first international move since Rup Lal Trehan's posting to Cameroon, roughly 75 years earlier.</div>
+
+      <!-- CARD 3: Ambika Trehan -->
+      <div class="gen-card">
+        <div class="gen-card-hdr" style="background:var(--g3)">
+          <div class="gen-card-label">Mother · Generation III</div>
+          <div class="gen-card-name">Ambika Trehan</div>
+          <div class="gen-card-yrs">1973 – present</div>
+          <div class="gen-card-role">Lecturer of Biology<br>Chandigarh · Panjab University</div>
+        </div>
+        <div class="gen-card-body">
+          <div class="ev">
+            <div class="ev-yr">1973</div>
+            <div class="ev-dot" style="background:var(--g3)"></div>
+            <div>
+              <div class="ev-place">Born in Fazilka, Punjab</div>
+              <div class="ev-desc">Born at her maternal grandmother's home near the India–Pakistan border — a common practice of the time, returning to family for childbirth. The family is otherwise based in Calcutta.</div>
+            </div>
+          </div>
+          <div class="ev">
+            <div class="ev-yr">1973–76</div>
+            <div class="ev-dot" style="background:var(--g3)"></div>
+            <div>
+              <div class="ev-place">Calcutta, West Bengal</div>
+              <div class="ev-desc">Early childhood in the city of her parents' professional life.</div>
+            </div>
+          </div>
+          <div class="ev">
+            <div class="ev-yr">1976–83</div>
+            <div class="ev-dot" style="background:var(--g3)"></div>
+            <div>
+              <div class="ev-place">Valsad, Gujarat</div>
+              <div class="ev-desc">Seven formative years in western India — the family moves from Bengal's east coast culture to Gujarat's coastal belt.</div>
+            </div>
+          </div>
+          <div class="ev">
+            <div class="ev-yr">1983–85</div>
+            <div class="ev-dot" style="background:var(--g3)"></div>
+            <div>
+              <div class="ev-place">Faridabad, Haryana</div>
+              <div class="ev-desc">The family moves to the NCR's industrial belt, signaling a return northward toward Punjab.</div>
+            </div>
+          </div>
+          <div class="ev">
+            <div class="ev-yr">1985 +</div>
+            <div class="ev-dot" style="background:var(--g3)"></div>
+            <div>
+              <div class="ev-place">Chandigarh</div>
+              <div class="ev-desc">Settles in Le Corbusier's planned city. Both parents attend Panjab University, where they meet. Ambika has built a career here as a Lecturer of Biology, spanning over two decades.</div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="ev">
-        <div class="ev-yr">Present</div>
-        <div class="ev-dot" style="background:var(--g4)"></div>
-        <div>
-          <div class="ev-place">San Francisco, California</div>
-          <div class="ev-desc">Works as a Product Manager in the technology industry. A journey that began in colonial-era Punjab now spans ~120 years, three continents, and many chapters.</div>
+
+      <!-- CARD 4: Karan Saini -->
+      <div class="gen-card">
+        <div class="gen-card-hdr" style="background:var(--g4)">
+          <div class="gen-card-label">Generation IV</div>
+          <div class="gen-card-name">Karan Saini</div>
+          <div class="gen-card-yrs">1995 – present</div>
+          <div class="gen-card-role">Product Manager<br>San Francisco, California</div>
+        </div>
+        <div class="gen-card-body">
+          <div class="ev">
+            <div class="ev-yr">1995</div>
+            <div class="ev-dot" style="background:var(--g4)"></div>
+            <div>
+              <div class="ev-place">Born in Chandigarh</div>
+              <div class="ev-desc">Born in the city where his grandparents had finally settled. Grows up in close proximity to Major Satya Paul Trehan and his grandmother Narinder — a childhood shaped significantly by his grandfather's stories, discipline, and wide-ranging experience of the world.</div>
+            </div>
+          </div>
+          <div class="ev">
+            <div class="ev-yr">2014</div>
+            <div class="ev-dot" style="background:var(--g4)"></div>
+            <div>
+              <div class="ev-place">Delhi</div>
+              <div class="ev-desc">Studies at the University of Delhi, then stays on for early professional work in the capital.</div>
+            </div>
+          </div>
+          <div class="ev">
+            <div class="ev-yr">2022</div>
+            <div class="ev-dot" style="background:var(--g4)"></div>
+            <div>
+              <div class="ev-place">Chicago, United States</div>
+              <div class="ev-desc">Graduate studies at Northwestern University — the family's first international move since Rup Lal Trehan's posting to Cameroon, roughly 75 years earlier.</div>
+            </div>
+          </div>
+          <div class="ev">
+            <div class="ev-yr">Present</div>
+            <div class="ev-dot" style="background:var(--g4)"></div>
+            <div>
+              <div class="ev-place">San Francisco, California</div>
+              <div class="ev-desc">Works as a Product Manager in the technology industry. A journey that began in colonial-era Punjab now spans ~120 years, three continents, and many chapters.</div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+
+    </div><!-- end gen-scroll -->
+  </div><!-- end gen-scroll-wrap -->
+</div><!-- end gen-cards-section -->
 
 <hr class="div">
 
@@ -532,122 +551,94 @@ footer {
     <path d="M4.5,11 Q1,20 7,20 Q13,20 9.5,11 Z"/>
   </symbol>
 </defs>
-
-<!-- generation row labels -->
 <text x="6" y="22" text-anchor="start" font-size="8.5" fill="#C8C0AE" font-style="italic">Great-grandparents</text>
 <text x="6" y="128" text-anchor="start" font-size="8.5" fill="#C8C0AE" font-style="italic">Grandparents</text>
 <text x="6" y="220" text-anchor="start" font-size="8.5" fill="#C8C0AE" font-style="italic">Parents</text>
 <text x="6" y="322" text-anchor="start" font-size="8.5" fill="#C8C0AE" font-style="italic">Karan's generation</text>
-
-<!-- ── CONNECTORS ── -->
-<!-- Gen I marriage lines (mid of boxes at y=58) -->
 <line x1="121" y1="58" x2="130" y2="58" stroke="#C8C0AE" stroke-width="1.5"/>
 <line x1="548" y1="58" x2="558" y2="58" stroke="#C8C0AE" stroke-width="1.5"/>
-<!-- Gen I → Gen II (boxes bottom at y=86, route through y=112) -->
 <polyline points="128,86 128,112 270,112 270,136" fill="none" stroke="#C8C0AE" stroke-width="1.5"/>
 <polyline points="547,86 547,112 415,112 415,136" fill="none" stroke="#C8C0AE" stroke-width="1.5"/>
-<!-- Gen II marriage line (mid at y=164) -->
 <line x1="344" y1="164" x2="356" y2="164" stroke="#C8C0AE" stroke-width="1.5"/>
-<!-- Gen II → Gen III (bottom at y=192, route through y=210) -->
 <polyline points="350,192 350,210 160,210 160,228" fill="none" stroke="#C8C0AE" stroke-width="1.5"/>
 <polyline points="350,210 503,210 503,228" fill="none" stroke="#C8C0AE" stroke-width="1.5"/>
-<!-- Gen III marriage lines (mid at y=256) -->
 <line x1="157" y1="256" x2="163" y2="256" stroke="#C8C0AE" stroke-width="1.5"/>
 <line x1="500" y1="256" x2="506" y2="256" stroke="#C8C0AE" stroke-width="1.5"/>
-<!-- Gen III → Gen IV (bottom at y=284, route through y=310) -->
 <polyline points="160,284 160,310 98,310 98,330" fill="none" stroke="#C8C0AE" stroke-width="1.5"/>
 <polyline points="160,310 212,310 212,330" fill="none" stroke="#C8C0AE" stroke-width="1.5"/>
 <polyline points="503,284 503,310 447,310 447,330" fill="none" stroke="#C8C0AE" stroke-width="1.5"/>
 <polyline points="503,310 565,310 565,330" fill="none" stroke="#C8C0AE" stroke-width="1.5"/>
-
-<!-- ── GEN I — GREAT-GRANDPARENTS (y=30, h=56) ── -->
-<rect x="8"   y="30" width="113" height="56" rx="6" fill="#F7EDD8" stroke="#A87020" stroke-width="1"/>
-<use href="#ico-m" x="13"  y="40" width="14" height="18" fill="#8B5E15"/>
-<text x="71"  y="50" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#5C3A08" font-weight="bold">Rup Lal Trehan</text>
-<text x="71"  y="67" text-anchor="middle" dominant-baseline="central" font-size="9.5" fill="#8B5E15">1900 – 1975</text>
-
+<rect x="8" y="30" width="113" height="56" rx="6" fill="#F7EDD8" stroke="#A87020" stroke-width="1"/>
+<use href="#ico-m" x="13" y="40" width="14" height="18" fill="#8B5E15"/>
+<text x="71" y="50" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#5C3A08" font-weight="bold">Rup Lal Trehan</text>
+<text x="71" y="67" text-anchor="middle" dominant-baseline="central" font-size="9.5" fill="#8B5E15">1900 – 1975</text>
 <rect x="130" y="30" width="118" height="56" rx="6" fill="#F7EDD8" stroke="#A87020" stroke-width="1"/>
 <use href="#ico-f" x="135" y="40" width="14" height="18" fill="#8B5E15"/>
 <text x="196" y="50" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#5C3A08" font-weight="bold">Lilawati Trehan</text>
 <text x="196" y="67" text-anchor="middle" dominant-baseline="central" font-size="9.5" fill="#8B5E15">1910 – 1988</text>
-
 <rect x="413" y="30" width="135" height="56" rx="6" fill="#F7EDD8" stroke="#A87020" stroke-width="1"/>
 <use href="#ico-m" x="418" y="40" width="14" height="18" fill="#8B5E15"/>
 <text x="488" y="50" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#5C3A08" font-weight="bold">Muni Lal Dhawan</text>
 <text x="488" y="67" text-anchor="middle" dominant-baseline="central" font-size="9.5" fill="#8B5E15">1909 – 1983</text>
-
 <rect x="558" y="30" width="110" height="56" rx="6" fill="#F7EDD8" stroke="#A87020" stroke-width="1"/>
 <use href="#ico-f" x="563" y="40" width="14" height="18" fill="#8B5E15"/>
 <text x="620" y="50" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#5C3A08" font-weight="bold">Ram Pyari Syal</text>
 <text x="620" y="67" text-anchor="middle" dominant-baseline="central" font-size="9.5" fill="#8B5E15">1913 – 1989</text>
-
-<!-- ── GEN II — GRANDPARENTS (y=136, h=56) ── -->
 <rect x="196" y="136" width="148" height="56" rx="6" fill="#F2DDD8" stroke="#8C3B1E" stroke-width="1"/>
 <use href="#ico-m" x="201" y="146" width="14" height="18" fill="#6B2410"/>
 <text x="277" y="156" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#4A1A0A" font-weight="bold">Satya Paul Trehan</text>
 <text x="277" y="173" text-anchor="middle" dominant-baseline="central" font-size="9.5" fill="#6B2410">1941 – 2010</text>
-
 <rect x="356" y="136" width="118" height="56" rx="6" fill="#F2DDD8" stroke="#8C3B1E" stroke-width="1"/>
 <use href="#ico-f" x="361" y="146" width="14" height="18" fill="#6B2410"/>
 <text x="422" y="156" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#4A1A0A" font-weight="bold">Narinder Trehan</text>
 <text x="422" y="173" text-anchor="middle" dominant-baseline="central" font-size="9.5" fill="#6B2410">b. 1945</text>
-
-<!-- ── GEN III — PARENTS (y=228, h=56) ── -->
-<rect x="44"  y="228" width="113" height="56" rx="6" fill="#D5E8F2" stroke="#22607A" stroke-width="1"/>
-<use href="#ico-f" x="49"  y="238" width="14" height="18" fill="#164050"/>
+<rect x="44" y="228" width="113" height="56" rx="6" fill="#D5E8F2" stroke="#22607A" stroke-width="1"/>
+<use href="#ico-f" x="49" y="238" width="14" height="18" fill="#164050"/>
 <text x="107" y="248" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#0F2E3A" font-weight="bold">Ambika Trehan</text>
 <text x="107" y="265" text-anchor="middle" dominant-baseline="central" font-size="9.5" fill="#164050">b. 1973</text>
-
 <rect x="163" y="228" width="105" height="56" rx="6" fill="#D5E8F2" stroke="#22607A" stroke-width="1"/>
 <use href="#ico-m" x="168" y="238" width="14" height="18" fill="#164050"/>
 <text x="222" y="248" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#0F2E3A" font-weight="bold">Deepak Saini</text>
 <text x="222" y="265" text-anchor="middle" dominant-baseline="central" font-size="9.5" fill="#164050">b. 1971</text>
-
 <rect x="390" y="228" width="110" height="56" rx="6" fill="#D5E8F2" stroke="#22607A" stroke-width="1"/>
 <use href="#ico-f" x="395" y="238" width="14" height="18" fill="#164050"/>
 <text x="452" y="248" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#0F2E3A" font-weight="bold">Pooja Theeng</text>
 <text x="452" y="265" text-anchor="middle" dominant-baseline="central" font-size="9.5" fill="#164050">b. 1976</text>
-
 <rect x="506" y="228" width="107" height="56" rx="6" fill="#D5E8F2" stroke="#22607A" stroke-width="1"/>
 <use href="#ico-m" x="511" y="238" width="14" height="18" fill="#164050"/>
 <text x="566" y="248" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#0F2E3A" font-weight="bold">Navin Theeng</text>
 <text x="566" y="265" text-anchor="middle" dominant-baseline="central" font-size="9.5" fill="#164050">b. 1976</text>
-
-<!-- ── GEN IV — KARAN'S GENERATION (y=330, h=56) ── -->
-<rect x="46"  y="330" width="105" height="56" rx="6" fill="#B8DFD0" stroke="#357052" stroke-width="2.5"/>
-<use href="#ico-m" x="51"  y="340" width="14" height="18" fill="#1E4A34"/>
+<rect x="46" y="330" width="105" height="56" rx="6" fill="#B8DFD0" stroke="#357052" stroke-width="2.5"/>
+<use href="#ico-m" x="51" y="340" width="14" height="18" fill="#1E4A34"/>
 <text x="105" y="350" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#1E4A34" font-weight="bold">Karan Saini</text>
 <text x="105" y="367" text-anchor="middle" dominant-baseline="central" font-size="9.5" fill="#1E4A34">b. 1995</text>
-
 <rect x="160" y="330" width="105" height="56" rx="6" fill="#D8EDE2" stroke="#357052" stroke-width="1"/>
 <use href="#ico-m" x="165" y="340" width="14" height="18" fill="#1E4A34"/>
 <text x="219" y="350" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#1E4A34" font-weight="bold">Kunal Saini</text>
 <text x="219" y="367" text-anchor="middle" dominant-baseline="central" font-size="9.5" fill="#1E4A34">b. 1998</text>
-
 <rect x="390" y="330" width="115" height="56" rx="6" fill="#D8EDE2" stroke="#357052" stroke-width="1"/>
 <use href="#ico-f" x="395" y="340" width="14" height="18" fill="#1E4A34"/>
 <text x="454" y="350" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#1E4A34" font-weight="bold">Samara Theeng</text>
 <text x="454" y="367" text-anchor="middle" dominant-baseline="central" font-size="9.5" fill="#1E4A34">b. 2005</text>
-
 <rect x="512" y="330" width="107" height="56" rx="6" fill="#D8EDE2" stroke="#357052" stroke-width="1"/>
 <use href="#ico-f" x="517" y="340" width="14" height="18" fill="#1E4A34"/>
 <text x="572" y="350" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#1E4A34" font-weight="bold">Anaya Theeng</text>
 <text x="572" y="367" text-anchor="middle" dominant-baseline="central" font-size="9.5" fill="#1E4A34">b. 2011</text>
-
 </svg>
     </div>
   </div>
+
   <!-- The great-uncle in America -->
   <div class="appendix-block">
     <div class="appendix-title">Narinder Trehan's brother — a life in America</div>
     <div class="appendix-sub">Karan's great-uncle on the maternal side · Los Angeles, California</div>
     <div class="appendix-body">
-      <p>One of Narinder Trehan's brothers (Karan's grandmother's sibling) made his way to the United States in the 1970s and settled in Beverly Hills, Los Angeles. He built a fortune in the denim industry and lived large — joining the prestigous Lions Club, marrying an American model, and later remarrying another model. He had a huge mansion there, which he named Taj Mahal. By the accounts of those who knew him, he was a man of considerable exuberance and appetite for life.</p>
+      <p>One of Narinder Trehan's brothers (Karan's grandmother's sibling) made his way to the United States in the 1970s and settled in Beverly Hills, Los Angeles. He built a fortune in the denim industry and lived large — joining the prestigious Lions Club, marrying an American model, and later remarrying another. He had a large mansion there, which he named Taj Mahal. By the accounts of those who knew him, he was a man of considerable exuberance and appetite for life.</p>
       <p>The fortune, however, did not hold. Legal troubles mounted, and when a court pronounced him guilty in a lawsuit, he shot himself in the courtroom.</p>
       <p>His story is one of the more dramatic threads in the family's history — a man who crossed the same ocean as Karan would, decades earlier, reached Beverly Hills from a Punjabi railway town, and met an end as vivid as his ambitions.</p>
     </div>
   </div>
-  
+
   <!-- Grandmother's father -->
   <div class="appendix-block">
     <div class="appendix-title">Narinder Trehan's father — Permanent Way Engineer, Northern Indian Railways</div>
@@ -658,7 +649,6 @@ footer {
       <p>The railway connection on both sides of Karan's family — Rup Lal as an engineer in British colonial service, and Narinder's father as a Class I Permanent Way officer in the Northern Indian Railways — is a quiet coincidence that threads through the family's history.</p>
     </div>
   </div>
-
 
 </section>
 
@@ -698,7 +688,6 @@ const loc = {
   sf:         [37.77, -122.42]
 };
 
-/* ── GLOBAL MAP ── */
 const mg = L.map('map-global', { center:[22,40], zoom:2 });
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{
   attribution:'© OpenStreetMap contributors © CARTO', subdomains:'abcd', maxZoom:19
@@ -722,7 +711,6 @@ const gm = [
 ];
 gm.forEach(([l,c,n,t,d]) => L.marker(l,{icon:numberedIcon(c,n)}).bindPopup(popup(t,d)).addTo(mg));
 
-/* ── INDIA MAP ── */
 const mi = L.map('map-india', { center:[24,80], zoom:5 });
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{
   attribution:'© OpenStreetMap contributors © CARTO', subdomains:'abcd', maxZoom:19
@@ -742,6 +730,26 @@ const im = [
   [loc.chandigarh,      C.g3, 11, 'Chandigarh',                  'Family settled here in 1985. Karan born here in 1995.'],
 ];
 im.forEach(([l,c,n,t,d]) => L.marker(l,{icon:numberedIcon(c,n)}).bindPopup(popup(t,d)).addTo(mi));
+
+/* ── CARD NAVIGATION ── */
+const scroll = document.getElementById('gen-scroll');
+const dots = document.querySelectorAll('.gen-dot');
+const cardWidth = () => scroll.querySelector('.gen-card').offsetWidth + 20;
+
+function updateDots() {
+  const i = Math.round(scroll.scrollLeft / cardWidth());
+  dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+}
+
+function scrollCards(dir) {
+  scroll.scrollBy({ left: dir * cardWidth(), behavior: 'smooth' });
+}
+
+function goToCard(i) {
+  scroll.scrollTo({ left: i * cardWidth(), behavior: 'smooth' });
+}
+
+scroll.addEventListener('scroll', updateDots, { passive: true });
 </script>
 </body>
 </html>
